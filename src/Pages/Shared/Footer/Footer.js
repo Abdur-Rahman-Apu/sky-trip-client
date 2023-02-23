@@ -8,7 +8,7 @@ import Pinterest from '../../../assets/pinterest.png'
 
 const Footer = () => {
     return (
-        <footer className='bg-base-200'>
+        <footer className='bg-[#f1f4f4]'>
             <div className="footer p-10  text-base-content">
                 <div>
                     <Link>
@@ -52,7 +52,7 @@ const Footer = () => {
                     <Link className="link link-hover">Cookie policy</Link>
                 </div>
             </div>
-            <hr />
+            <div className="divider"></div>
             <div className='p-10'>
                 <p>Copyright © 2023 - All right reserved by SkyTrip</p>
             </div>
