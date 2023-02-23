@@ -1,9 +1,10 @@
 import React from 'react';
+import Subscribe from '../Subscribe/Subscribe';
 
 const Home = () => {
     return (
         <div>
-            this is home
+            <Subscribe></Subscribe>
         </div>
     );
 };
