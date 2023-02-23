@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../../assets/logo.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import Facebook from '../../../assets/facebook.png'
+import Twitter from '../../../assets/twitter.png'
+import Instagram from '../../../assets/instagram.png'
+import Pinterest from '../../../assets/pinterest.png'
 
 const Footer = () => {
     return (
@@ -14,11 +16,19 @@ const Footer = () => {
                     </Link>
                     <p className='text-left'>Your mind should be stranger <br /> than your feelings. fly!</p>
 
-                    <div className='social-media'>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div className='social-media flex justify-between w-full'>
+                        <div>
+                            <img className='w-7' src={Facebook} alt="facebook" />
+                        </div>
+                        <div>
+                            <img className='w-7' src={Twitter} alt="twitter" />
+                        </div>
+                        <div>
+                            <img className='w-7' src={Instagram} alt="instagram" />
+                        </div>
+                        <div>
+                            <img className='w-7' src={Pinterest} alt="pinterest" />
+                        </div>
                     </div>
                 </div>
                 <div>
