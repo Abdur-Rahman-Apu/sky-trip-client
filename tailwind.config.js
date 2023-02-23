@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         'deepViolet': '#40407a',
-        'background': '#F1F4F4'
+        'background': '#F1F4F4',
+        'paraColor': '#a9a8aa',
       }
     },
   },
