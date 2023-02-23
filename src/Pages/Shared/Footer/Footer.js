@@ -5,6 +5,7 @@ import Facebook from '../../../assets/facebook.png'
 import Twitter from '../../../assets/twitter.png'
 import Instagram from '../../../assets/instagram.png'
 import Pinterest from '../../../assets/pinterest.png'
+import './Footer.css'
 
 const Footer = () => {
     return (
@@ -53,7 +54,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="divider"></div>
-            <div className='p-10'>
+            <div className='p-10 flex justify-center'>
                 <p>Copyright © 2023 - All right reserved by SkyTrip</p>
             </div>
         </footer>
