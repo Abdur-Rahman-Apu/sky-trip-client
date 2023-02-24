@@ -3,6 +3,8 @@ import Lottie from "lottie-react";
 import LogInAnimation from "../../assets/login.json";
 import Logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faLock } from '@fortawesome/free-solid-svg-icons'
 
 const LogIn = () => {
     return (
@@ -12,7 +14,6 @@ const LogIn = () => {
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
-
                         <Lottie animationData={LogInAnimation} loop={true} />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -23,11 +24,15 @@ const LogIn = () => {
                                 </label>
                                 <input type="text" placeholder="email" className="input input-bordered" />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="text" placeholder="password" className="input input-bordered" />
+                                <div className='absolute  top-11 right-2'>
+                                    <FontAwesomeIcon icon={faLock} />
+                                </div>
+
                                 <label className="label">
                                     <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
