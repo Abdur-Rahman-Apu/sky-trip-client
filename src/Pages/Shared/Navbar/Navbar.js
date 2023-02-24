@@ -11,7 +11,7 @@ const Navbar = () => {
         <li><Link>Contact</Link></li>
     </>
     return (
-        <div className="navbar bg-[#f1f4f4] p-6 mb-10 shadow-lg w-full">
+        <div className="navbar bg-[#f1f4f4] p-6 shadow-lg w-full">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -33,7 +33,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn btn-sm md:btn-md text-xs rounded-full border-0 bg-deepViolet">Log in</Link>
+                <Link to='/login' className="btn btn-sm md:btn-md text-xs rounded-full border-0 bg-deepViolet">Log in</Link>
             </div>
         </div>
     );
