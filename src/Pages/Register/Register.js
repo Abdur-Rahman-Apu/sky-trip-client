@@ -36,15 +36,34 @@ const Register = () => {
                             {/* name  */}
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text  font-bold">Name</span>
                                 </label>
                                 <input type="text" placeholder="Enter your name" className="input input-bordered" />
+                            </div>
+
+                            {/* image  */}
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text  font-bold">Your image</span>
+                                </label>
+                                <input type="file" className="file-input file-input-success file-input-bordered w-full max-w-xs " />
+                            </div>
+
+                            {/* identity  */}
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label ">
+                                    <span className="label-text font-bold">Identity</span>
+                                </label>
+                                <select className="select select-bordered w-full max-w-xs">
+                                    <option>Company</option>
+                                    <option>User</option>
+                                </select>
                             </div>
 
                             {/* email  */}
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text font-bold">Email</span>
                                 </label>
                                 <input type="text" placeholder="Enter your email" className="input input-bordered" />
                             </div>
@@ -52,7 +71,7 @@ const Register = () => {
                             {/* password  */}
                             <div className="form-control relative">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text font-bold">Password</span>
                                 </label>
                                 <input type="password" placeholder="Enter your password" className="input input-bordered" />
                                 <div className='absolute cursor-pointer top-11 right-2'>
