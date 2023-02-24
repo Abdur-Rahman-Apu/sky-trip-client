@@ -5,10 +5,16 @@ import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons'
 import Lottie from "lottie-react";
 import RegisterAnimation from '../../assets/register.json'
 import Logo from '../../assets/logo.png'
+import { useForm } from "react-hook-form";
 
 const Register = () => {
     const [visibility, setVisibility] = useState('show')
 
+
+
+
+
+    // handle password show and hide 
     const handleVisibility = (event) => {
         event.preventDefault()
         let passwordField = event.target.parentElement.parentElement.parentElement.children[1]
@@ -20,7 +26,16 @@ const Register = () => {
             passwordField.setAttribute('type', 'password')
             setVisibility('show')
         }
-        console.log(event.target.parentElement.parentElement.parentElement.children[1].value);
+    }
+
+
+
+
+    //register
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const handleRegister = (data) => {
+        console.log(data);
     }
     return (
         <div>
@@ -34,11 +49,13 @@ const Register = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form className="card-body">
                             {/* name  */}
-                            <div className="form-control">
+                            <div onSubmit={handleSubmit(handleRegister)} className="form-control">
                                 <label className="label">
                                     <span className="label-text  font-bold">Name</span>
                                 </label>
-                                <input type="text" placeholder="Enter your name" className="input input-bordered" />
+                                <input type="text" placeholder="Enter your name" className="input input-bordered" {...register("name", { required: 'Name is required' })} />
+
+                                {errors.name && <p className='text-red-500' role="alert">{errors.name?.message}</p>}
                             </div>
 
                             {/* image  */}
@@ -46,7 +63,8 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text  font-bold">Your image</span>
                                 </label>
-                                <input type="file" className="file-input file-input-success file-input-bordered w-full max-w-xs " />
+                                <input type="file" className="file-input file-input-success file-input-bordered w-full max-w-xs" {...register('image', { required: 'Image is required' })} />
+                                {errors.image && <p role="alert">{errors.image?.message}</p>}
                             </div>
 
                             {/* identity  */}
@@ -54,10 +72,11 @@ const Register = () => {
                                 <label className="label ">
                                     <span className="label-text font-bold">Identity</span>
                                 </label>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select className="select select-bordered w-full max-w-xs" {...register('identity', { required: 'Identity is required' })}>
                                     <option>Company</option>
                                     <option>User</option>
                                 </select>
+                                {errors.identity && <p role="alert">{errors.identity?.message}</p>}
                             </div>
 
                             {/* email  */}
@@ -65,7 +84,8 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Email</span>
                                 </label>
-                                <input type="text" placeholder="Enter your email" className="input input-bordered" />
+                                <input type="text" placeholder="Enter your email" className="input input-bordered" {...register('mail', { required: 'Email is required' })} />
+                                {errors.mail && <p role="alert">{errors.mail?.message}</p>}
                             </div>
 
                             {/* password  */}
@@ -73,7 +93,8 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text font-bold">Password</span>
                                 </label>
-                                <input type="password" placeholder="Enter your password" className="input input-bordered" />
+                                <input type="password" placeholder="Enter your password" className="input input-bordered" {...register('password', { required: 'Password is required' })} />
+                                {errors.password && <p role="alert">{errors.password?.message}</p>}
                                 <div className='absolute cursor-pointer top-11 right-2'>
                                     {
                                         visibility === 'show' ? <FontAwesomeIcon onClick={handleVisibility} icon={faLock} /> :
