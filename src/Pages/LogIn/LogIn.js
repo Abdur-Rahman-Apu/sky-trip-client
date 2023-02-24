@@ -1,11 +1,14 @@
 import React from 'react';
 import Lottie from "lottie-react";
 import LogInAnimation from "../../assets/login.json";
+import Logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 const LogIn = () => {
     return (
         <div>
             <h1 className="text-5xl font-bold text-center mt-10 mb-0 text-deepViolet">Login now!</h1>
+            <img className="w-40 mt-8 mx-auto" src={Logo} alt="logo" />
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
@@ -26,7 +29,7 @@ const LogIn = () => {
                                 </label>
                                 <input type="text" placeholder="password" className="input input-bordered" />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
