@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons'
@@ -6,6 +6,8 @@ import Lottie from "lottie-react";
 import RegisterAnimation from '../../assets/register.json'
 import Logo from '../../assets/logo.png'
 import { useForm } from "react-hook-form";
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
     const [visibility, setVisibility] = useState('show')
@@ -34,8 +36,83 @@ const Register = () => {
     //register
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const { signUp, updateInfo, logOut } = useContext(AuthContext)
+
     const handleRegister = (data) => {
         console.log(data);
+        const { name, identity, mail, password } = data
+
+        const image = data.image[0]
+        console.log(image);
+        const uri = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_imgBB}`
+
+        const formData = new FormData()
+        formData.append('image', image)
+        fetch(uri, {
+            method: 'POST',
+            body: formData
+        })
+            .then(imgData => {
+                signUp(mail, password)
+                    .then(result => {
+                        const user = result.user
+
+                        const profileInfo = {
+                            displayName: name,
+                            photoURL: imgData.url
+                        }
+
+                        updateInfo(profileInfo)
+                            .then(() => {
+                                const userInfo = {
+                                    name,
+                                    email: mail,
+                                    identity,
+                                    image: imgData.url,
+                                    password
+                                }
+
+                                fetch(`http://localhost:5000/users`, {
+                                    method: 'POST',
+                                    headers: {
+                                        'content-type': 'application/json'
+                                    },
+                                    body: JSON.stringify(userInfo)
+                                })
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        console.log(data);
+                                        if (data.acknowledged === true) {
+
+                                            toast.success('Registration successful. Please log in');
+                                            logOut()
+                                                .then(() => { })
+                                                .catch(error => {
+                                                    toast.error('Log out failed')
+                                                })
+
+
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.log(error);
+                                        toast.error("Data store failed")
+                                    })
+
+                            })
+                            .catch(error => {
+                                console.log("Update profile");
+                                toast.error('Registration failed');
+                            })
+
+                    })
+                    .catch(error => {
+                        toast.error('User registration failed',);
+                    })
+            })
+            .catch(error => {
+                toast.error('Image upload failed');
+            })
     }
     return (
         <div>
@@ -47,9 +124,9 @@ const Register = () => {
                         <Lottie animationData={RegisterAnimation} loop={true} />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleSubmit(handleRegister)} className="card-body">
                             {/* name  */}
-                            <div onSubmit={handleSubmit(handleRegister)} className="form-control">
+                            <div className="form-control">
                                 <label className="label">
                                     <span className="label-text  font-bold">Name</span>
                                 </label>
