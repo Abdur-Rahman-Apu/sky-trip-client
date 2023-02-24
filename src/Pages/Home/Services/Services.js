@@ -6,7 +6,7 @@ import './Services.css'
 
 const Services = () => {
     return (
-        <div className='px-16 h-[1400px] md:h-auto'>
+        <div className='px-16 h-[1400px] py-28 md:h-auto'>
             <div className='text-center'>
                 <p className='text-xs uppercase tracking-[10px] mb-3'>Travel support</p>
                 <h1 className='text-xl font-bold mb-2'>Plan your travel with confidence</h1>
