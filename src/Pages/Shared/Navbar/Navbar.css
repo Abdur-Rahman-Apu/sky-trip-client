@@ -2,3 +2,8 @@
     font-family: var(--roboto);
     font-weight: bold;
 }
+
+.active {
+    background-color: #40407a;
+    color: white;
+}

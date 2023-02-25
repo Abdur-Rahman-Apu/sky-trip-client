@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../Context/AuthProvider';
 import './Navbar.css'
@@ -10,14 +10,18 @@ const Navbar = () => {
     const { user, logOut, setUser } = useContext(AuthContext)
     console.log(user);
 
+    const location = useLocation()
+
+
+
     const menus = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link>Flight</Link></li>
+        <li><Link to='/' className={`${location.pathname === '/' ? 'active' : ''}`}>Home</Link></li>
+        <li><Link className={`${location.pathname === '/flight' ? 'active' : ''}`}>Flight</Link></li>
         {
-            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+            user && <li><Link to='/dashboard' className={`${location.pathname.match('/dashboard') ? 'active' : ''}`}>Dashboard</Link></li>
         }
-        <li><Link>About</Link></li>
-        <li><Link>Contact</Link></li>
+        <li><Link className={`${location.pathname === '/about' ? 'active' : ''}`}>About</Link></li>
+        <li><Link className={`${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link></li>
     </>
 
 
