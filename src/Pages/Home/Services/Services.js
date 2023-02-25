@@ -34,15 +34,18 @@ const Services = () => {
 
                 </div>
                 <div className='basis-1/2 services relative flex justify-center'>
-                    <div className='rounded-full w-40 md:w-52 h-[300px] z-30 absolute top-36 left-20'>
-                        <img className=' h-full object-cover ' src={window} alt="benefit-img" />
+                    <div className='rounded-full w-40 lg:w-52 h-[200px] lg:h-[300px] z-30 absolute top-36 left-20'>
+                        <img className=' h-full object-cover hidden lg:block ' src={window} alt="benefit-img" />
                     </div>
-                    <div className='rounded-full w-40 md:w-52 h-[300px] z-20'>
+
+                    <div className='rounded-full w-40 lg:w-52  h-[200px] lg:h-[300px] z-20'>
                         <img className=' h-full object-cover' src={window2} alt="benefit-img" />
                     </div>
-                    <div className='rounded-full w-40 md:w-40 h-[250px] z-10 absolute right-24 top-48'>
+
+                    <div className='rounded-full w-40 lg:w-40 hidden lg:block h-[200px] lg:h-[250px] z-10 absolute right-24 top-48'>
                         <img className=' h-full object-cover' src={window3} alt="benefit-img" />
                     </div>
+
                 </div>
             </div>
         </div>
