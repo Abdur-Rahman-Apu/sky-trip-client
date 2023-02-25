@@ -5,24 +5,24 @@ import './Benefit.css'
 
 const Benefit = () => {
     return (
-        <div className='flex flex-col md:flex-row justify-center items-center my-24 px-14 h-[900px] lg:h-[400px]'>
+        <div className='flex flex-col md:flex-row justify-center items-center my-24 px-14 h-[900px] lg:h-[400px] dark:text-white'>
             <div className='basis-1/2'>
-                <h1 className='mb-5  text-center md:text-left text-3xl text-deepViolet font-bold'>Unaccompanied Minor Lounge</h1>
+                <h1 className='mb-5 text-center md:text-left text-3xl text-deepViolet dark:text-white font-bold'>Unaccompanied Minor Lounge</h1>
                 <div className='flex flex-wrap'>
                     <div className='basis-full md:basis-1/2 mb-4 '>
-                        <h3 className='text-base md:text-lg font-bold'>Help through the airport</h3>
+                        <h3 className='text-base text-yellow-500 md:text-xl font-bold'>Help through the airport</h3>
                         <p className='pr-4 text-sm'>You can also call airlines from your phone and book a flight ticket to one of your favorite destinations.</p>
                     </div>
                     <div className='basis-full md:basis-1/2 mb-4 '>
-                        <h3 className='text-lg font-bold'>Priority Boarding</h3>
+                        <h3 className='text-xl text-green-500 font-bold'>Priority Boarding</h3>
                         <p className='pr-4 text-sm'>You can also call airlines from your phone and book a flight ticket to one of your favorite destinations.</p>
                     </div>
                     <div className='basis-full md:basis-1/2 mb-4 '>
-                        <h3 className='text-lg font-bold'>Care on the flight</h3>
-                        <p className='pr-4 text-sm'>You can also call airlines from your phone and book a flight ticket to one of your favorite destinations.</p>
+                        <h3 className='text-xl text-sky-500 font-bold'>Care on the flight</h3>
+                        <p className='pr-4  text-sm'>You can also call airlines from your phone and book a flight ticket to one of your favorite destinations.</p>
                     </div>
                     <div className='basis-full md:basis-1/2 mb-4 '>
-                        <h3 className='text-lg font-bold'>Chouffeur-drive service</h3>
+                        <h3 className='text-xl text-orange-400 font-bold'>Chouffeur-drive service</h3>
                         <p className='pr-4 text-sm'>You can also call airlines from your phone and book a flight ticket to one of your favorite destinations.</p>
                     </div>
                 </div>
