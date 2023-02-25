@@ -7,12 +7,12 @@ import './Services.css'
 const Services = () => {
     return (
         <div className='px-16 h-[1400px] py-28 md:h-auto'>
-            <div className='text-center'>
+            <div className='text-center dark:text-white'>
                 <p className='text-xs uppercase tracking-[10px] mb-3'>Travel support</p>
                 <h1 className='text-xl font-bold mb-2'>Plan your travel with confidence</h1>
                 <p className='text-paraColor'>Find help with booking and travel plans. See what to expect along the journey!</p>
             </div>
-            <div className='flex flex-col md:flex-row mt-28 gap-10'>
+            <div className='flex flex-col md:flex-row mt-28 gap-10 dark:text-white'>
                 <div className='basis-1/2'>
                     <div>
                         <span className="badge badge-lg bg-blue-600 border-0 mb-2 font-semibold">01</span>
