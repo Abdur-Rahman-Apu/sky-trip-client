@@ -8,7 +8,7 @@ const Banner = () => {
             <h1 className='text-4xl font-semibold text-center my-10'>Create Ever-lasting <br /> Memories With Us</h1>
 
             <div className='relative'>
-                <video autoPlay muted loop className=' mx-auto rounded-full h-[300px] '>
+                <video autoPlay muted loop className=' mx-auto rounded-full md:h-[300px] '>
                     <source src={BannerVideo} type="video/mp4"></source>
                 </video>
 
