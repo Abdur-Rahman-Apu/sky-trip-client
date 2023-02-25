@@ -4,8 +4,8 @@ import Airplane from '../../../assets/airplane.png'
 
 const Banner = () => {
     return (
-        <div className='pt-5'>
-            <h1 className='text-xl md:text-4xl font-bold text-center my-10'>Create Ever-lasting <br /> Memories With Us</h1>
+        <div className='pt-5 min-h-[600px]  dark:bg-black dark:text-white'>
+            <h1 className='text-xl md:text-4xl tracking-wider font-bold text-center my-10'>Create Ever-lasting <br /> Memories With Us</h1>
 
             <div className='relative'>
                 <video autoPlay muted loop className=' mx-auto rounded-full md:h-[300px] '>
