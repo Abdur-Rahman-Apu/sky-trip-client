@@ -1,8 +1,11 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Search = () => {
+    AOS.init();
     return (
-        <div>
+        <div data-aos="fade-in">
             <div className='w-[50vw] mx-auto mt-28'>
 
                 <h1 className='text-3xl font-bold text-center mb-12 dark:text-white'>Find your desired flight</h1>
