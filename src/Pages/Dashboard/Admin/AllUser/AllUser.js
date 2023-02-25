@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-hot-toast';
 import useUser from '../../../../customHooks/useUser';
-import DisplayCompany from './DisplayCompany';
+import DisplayUser from './DisplayUser';
 
-const AllCompany = () => {
-
+const AllUser = () => {
     const [users, refetch] = useUser()
 
     const handleDelete = (id) => {
@@ -37,7 +36,7 @@ const AllCompany = () => {
                 <tbody>
 
                     {
-                        users?.company.map((company, idx) => <DisplayCompany key={idx} company={company} handleDelete={handleDelete}></DisplayCompany>)
+                        users?.user.map((user, idx) => <DisplayUser key={idx} user={user} handleDelete={handleDelete}></DisplayUser>)
                     }
 
                 </tbody>
@@ -48,4 +47,4 @@ const AllCompany = () => {
     );
 };
 
-export default AllCompany;
+export default AllUser;

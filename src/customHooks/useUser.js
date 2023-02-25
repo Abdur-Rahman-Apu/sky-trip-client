@@ -1,14 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../Context/AuthProvider';
+import { useQuery } from '@tanstack/react-query'
 
 const useUser = () => {
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState(null)
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/users`)
-            .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
-    return [users]
+    const { user } = useContext(AuthContext)
+
+
+
+    const { data, refetch } = useQuery({
+        queryKey: ['allUsers'],
+        queryFn: async () => {
+            const response = await fetch(`http://localhost:5000/users`)
+            const data = response.json()
+            return data
+        }
+    })
+
+
+
+    return [data, refetch]
 };
 
 export default useUser;
