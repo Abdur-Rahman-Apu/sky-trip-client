@@ -38,13 +38,13 @@ const AuthProvider = ({ children }) => {
 
     //current user
     useEffect(() => {
-
+        setLoading(true)
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
             setLoading(false)
         })
         return unSubscribe()
-    }, [])
+    }, [user])
 
     //delete a user
     const deleteUserAccount = () => {
@@ -60,6 +60,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        setUser,
         signUp,
         logIn,
         resetPassword,

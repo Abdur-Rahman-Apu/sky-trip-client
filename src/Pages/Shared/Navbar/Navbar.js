@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Logo from '../../../assets/logo.png'
+import { AuthContext } from '../../../Context/AuthProvider';
 import './Navbar.css'
 
 const Navbar = () => {
+
+    const { user, logOut, setUser } = useContext(AuthContext)
+    console.log(user);
+
     const menus = <>
-        <li><Link>Home</Link></li>
+        <li><Link to='/'>Home</Link></li>
         <li><Link>Flight</Link></li>
+        {
+            user && <li><Link>Dashboard</Link></li>
+        }
         <li><Link>About</Link></li>
         <li><Link>Contact</Link></li>
     </>
+
+
     return (
         <div className="navbar bg-[#f1f4f4] p-6 shadow-lg w-full">
             <div className="navbar-start">
@@ -33,7 +44,36 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn btn-sm md:btn-md text-xs rounded-full border-0 bg-deepViolet">Log in</Link>
+                {
+                    user && <>
+
+                        <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                            <div className="avatar online mr-4 ">
+                                <div className="w-14 rounded-full " >
+                                    <img src={user?.photoURL} alt='img' />
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                }
+                {
+                    user ? <>
+
+                        <button onClick={() => {
+
+                            logOut()
+                                .then(() => {
+                                    toast.success('Log out successfully')
+                                    setUser(null)
+                                })
+                                .catch(error => {
+                                    toast.error("Log out failed")
+                                })
+                        }} className="btn btn-sm md:btn-md text-xs rounded-full border-0 bg-deepViolet">Log out</button>
+
+                    </> :
+                        <Link to='/login' className="btn btn-sm md:btn-md text-xs rounded-full border-0 bg-deepViolet">Log in</Link>
+                }
             </div>
         </div>
     );

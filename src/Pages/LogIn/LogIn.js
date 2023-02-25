@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Lottie from "lottie-react";
 import LogInAnimation from "../../assets/login.json";
 import Logo from '../../assets/logo.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons'
+import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const LogIn = () => {
 
@@ -21,8 +24,36 @@ const LogIn = () => {
             passwordField.setAttribute('type', 'password')
             setVisibility('show')
         }
-        console.log(event.target.parentElement.parentElement.parentElement.children[1].value);
     }
+
+
+    //handle login
+
+    const { logIn, setUser } = useContext(AuthContext)
+
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const handleLogIn = (data) => {
+        console.log(data);
+
+        const { email, password } = data
+        logIn(email, password)
+            .then(result => {
+                const user = result.user;
+                setUser(user)
+                toast.success('Log in successful')
+                navigate('/')
+            })
+            .catch(error => {
+                toast.error('Log in failed.')
+            })
+
+
+    }
+
     return (
         <div>
             <h1 className="text-5xl font-bold text-center mt-10 mb-0 text-deepViolet">Login now!</h1>
@@ -33,18 +64,26 @@ const LogIn = () => {
                         <Lottie animationData={LogInAnimation} loop={true} />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleSubmit(handleLogIn)} className="card-body">
+                            {/* email  */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
+                                <input type="text" placeholder="email" className="input input-bordered" {...register('email', { required: 'Email is required' })} />
+
+                                {errors.email?.type === 'required' && <p className='text-red-500' role="alert">{errors.email.message}</p>}
+
                             </div>
+                            {/* password  */}
                             <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" />
+                                <input type="password" placeholder="password" className="input input-bordered" {...register('password', { required: 'Password is required' })} />
+
+                                {errors.password?.type === 'required' && <p className='text-red-500' role="alert">{errors.password.message}</p>}
+
                                 <div className='absolute cursor-pointer top-11 right-2'>
                                     {
                                         visibility === 'show' ? <FontAwesomeIcon onClick={handleVisibility} icon={faLock} /> :
@@ -53,7 +92,7 @@ const LogIn = () => {
                                 </div>
 
                                 <label className="label">
-                                    <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
+                                    <Link to="#" className="label-text-alt link link-hover">Forgot password?</Link>
                                 </label>
                             </div>
                             <div className="form-control mt-6">

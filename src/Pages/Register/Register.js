@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons'
 import Lottie from "lottie-react";
@@ -38,6 +38,8 @@ const Register = () => {
 
     const { signUp, updateInfo, logOut } = useContext(AuthContext)
 
+    const navigate = useNavigate()
+
     const handleRegister = (data) => {
         console.log(data);
         const { name, identity, mail, password } = data
@@ -52,14 +54,16 @@ const Register = () => {
             method: 'POST',
             body: formData
         })
+            .then(res => res.json())
             .then(imgData => {
+                console.log(imgData);
                 signUp(mail, password)
                     .then(result => {
                         const user = result.user
 
                         const profileInfo = {
                             displayName: name,
-                            photoURL: imgData.url
+                            photoURL: imgData.data.url
                         }
 
                         updateInfo(profileInfo)
@@ -68,7 +72,7 @@ const Register = () => {
                                     name,
                                     email: mail,
                                     identity,
-                                    image: imgData.url,
+                                    image: imgData.data.url,
                                     password
                                 }
 
@@ -85,6 +89,7 @@ const Register = () => {
                                         if (data.acknowledged === true) {
 
                                             toast.success('Registration successful. Please log in');
+                                            navigate('/login')
                                             logOut()
                                                 .then(() => { })
                                                 .catch(error => {
@@ -107,7 +112,7 @@ const Register = () => {
 
                     })
                     .catch(error => {
-                        toast.error('User registration failed',);
+                        toast.error('User registration failed');
                     })
             })
             .catch(error => {
