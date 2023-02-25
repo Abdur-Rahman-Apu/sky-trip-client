@@ -12,7 +12,7 @@ const Banner = () => {
                     <source src={BannerVideo} type="video/mp4"></source>
                 </video>
 
-                <img className='absolute -top-8 md:-top-10 md:left-80 h-[290px] md:h-[390px]' src={Airplane} alt="airplaneImg" />
+                <img className='absolute -top-8 md:-top-10 lg:left-80 h-[290px] md:h-[390px]' src={Airplane} alt="airplaneImg" />
             </div>
         </div>
     );
