@@ -24,26 +24,30 @@ const AllCompany = () => {
 
     return (
         <div className="overflow-x-auto w-full mt-3">
-            <table className="table w-full">
-                {/* head */}
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
+            {
+                users?.company.length === 0 ? <p className='text-center mt-10 dark:text-white'>No data</p>
+                    :
+                    <table className="table w-full">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                    {
-                        users?.company.map((company, idx) => <DisplayCompany key={idx} company={company} handleDelete={handleDelete}></DisplayCompany>)
-                    }
+                            {
+                                users?.company.map((company, idx) => <DisplayCompany key={idx} company={company} handleDelete={handleDelete}></DisplayCompany>)
+                            }
 
-                </tbody>
+                        </tbody>
 
 
-            </table>
+                    </table>
+            }
         </div>
     );
 };

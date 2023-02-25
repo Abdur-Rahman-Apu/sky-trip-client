@@ -23,26 +23,28 @@ const AllUser = () => {
 
     return (
         <div className="overflow-x-auto w-full mt-3">
-            <table className="table w-full">
-                {/* head */}
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
+            {
+                users?.user.length === 0 ? <p className='text-center mt-10 dark:text-white'>No data</p> : <table className="table w-full">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    {
-                        users?.user.map((user, idx) => <DisplayUser key={idx} user={user} handleDelete={handleDelete}></DisplayUser>)
-                    }
+                        {
+                            users?.user.map((user, idx) => <DisplayUser key={idx} user={user} handleDelete={handleDelete}></DisplayUser>)
+                        }
 
-                </tbody>
+                    </tbody>
 
 
-            </table>
+                </table>
+            }
         </div>
     );
 };
