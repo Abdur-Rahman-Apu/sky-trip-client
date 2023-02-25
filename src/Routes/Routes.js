@@ -7,6 +7,7 @@ import AllUser from '../Pages/Dashboard/Admin/AllUser/AllUser'
 import Dashboard from '../Pages/Dashboard/Dasboard/Dashboard'
 import Home from '../Pages/Home/Home/Home'
 import LogIn from '../Pages/LogIn/LogIn'
+import PasswordReset from '../Pages/LogIn/PasswordReset'
 import Register from '../Pages/Register/Register'
 import Error from '../Pages/Shared/Error/Error'
 
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/resetPassword',
+                element: <PasswordReset></PasswordReset>
             },
         ]
     },
