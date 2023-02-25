@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="divider"></div>
-            <div className='p-10 flex justify-center'>
+            <div className='p-10 flex justify-center text-center'>
                 <p>Copyright © 2023 - All right reserved by SkyTrip</p>
             </div>
         </footer>
