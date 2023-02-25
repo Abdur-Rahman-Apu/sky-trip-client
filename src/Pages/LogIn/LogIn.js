@@ -29,7 +29,7 @@ const LogIn = () => {
 
     //handle login
 
-    const { logIn, setUser } = useContext(AuthContext)
+    const { logIn, setUser, logOut } = useContext(AuthContext)
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -42,10 +42,41 @@ const LogIn = () => {
         const { email, password } = data
         logIn(email, password)
             .then(result => {
+
                 const user = result.user;
+
                 setUser(user)
-                toast.success('Log in successful')
-                navigate('/')
+
+                const email = user?.email
+
+                console.log(email);
+                const userInfo = {
+                    email: email
+                }
+
+                fetch(`http://localhost:5000/jwt`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        if (data?.token) {
+                            localStorage.setItem('flight-token', data?.token)
+                            toast.success('Log in successful')
+                            navigate('/')
+                        }
+                    })
+                    .catch(error => {
+                        toast.error("Error happened")
+                        logOut()
+
+                    })
+
+
             })
             .catch(error => {
                 toast.error('Log in failed.')

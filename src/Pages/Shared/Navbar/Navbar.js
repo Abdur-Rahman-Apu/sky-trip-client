@@ -104,6 +104,7 @@ const Navbar = () => {
                                 .then(() => {
                                     toast.success('Log out successfully')
                                     setUser(null)
+                                    localStorage.removeItem('flight-token')
                                 })
                                 .catch(error => {
                                     toast.error("Log out failed")
