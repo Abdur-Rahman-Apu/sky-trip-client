@@ -2,6 +2,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import DashboardLayout from '../Layouts/DashboardLayout'
 import Main from '../Layouts/Main'
+import Contact from '../Pages/Contact/Contact'
 import AllCompany from '../Pages/Dashboard/Admin/AllCompany/AllCompany'
 import AllUser from '../Pages/Dashboard/Admin/AllUser/AllUser'
 import Cart from '../Pages/Dashboard/Buyer/Cart/Cart'
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             },
             {
                 path: '/resetPassword',
