@@ -35,7 +35,7 @@ const Navbar = () => {
 
     const menus = <>
         <li><Link to='/' className={`${location.pathname === '/' ? 'active' : ''}`}>Home</Link></li>
-        <li><Link className={`${location.pathname === '/flight' ? 'active' : ''}`}>Flight</Link></li>
+        <li><Link to='/flight' className={`${location.pathname === '/flight' ? 'active' : ''}`}>Flight</Link></li>
         {
             user && <li><Link to='/dashboard' className={`${location.pathname.match('/dashboard') ? 'active' : ''}`}>Dashboard</Link></li>
         }

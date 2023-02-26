@@ -8,6 +8,7 @@ import AddFlight from '../Pages/Dashboard/Company/AddFlight/AddFlight'
 import AllFlight from '../Pages/Dashboard/Company/AllFlight/AllFlight'
 import BookedFlight from '../Pages/Dashboard/Company/BookedFlight/BookedFlight'
 import Dashboard from '../Pages/Dashboard/Dasboard/Dashboard'
+import Flight from '../Pages/Flight/Flight/Flight'
 import Home from '../Pages/Home/Home/Home'
 import LogIn from '../Pages/LogIn/LogIn'
 import PasswordReset from '../Pages/LogIn/PasswordReset'
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: '/resetPassword',
                 element: <PasswordReset></PasswordReset>
+            },
+            {
+                path: '/flight',
+                element: <PrivateRoute><Flight></Flight></PrivateRoute>
             },
         ]
     },

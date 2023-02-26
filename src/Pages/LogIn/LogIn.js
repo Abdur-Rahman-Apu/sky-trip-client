@@ -34,7 +34,7 @@ const LogIn = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const location = useLocation()
-    const from = location.state.from || '/'
+    const from = location?.state?.from || '/'
     const navigate = useNavigate()
 
     const handleLogIn = (data) => {

@@ -2,11 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 import { useQuery } from '@tanstack/react-query'
 
-const useUser = () => {
+const useUser = (email) => {
     const [users, setUsers] = useState(null)
-
-    const { user } = useContext(AuthContext)
-
 
 
     const { data, refetch } = useQuery({
