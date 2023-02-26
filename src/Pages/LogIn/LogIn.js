@@ -34,6 +34,7 @@ const LogIn = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const location = useLocation()
+    const from = location.state.from || '/'
     const navigate = useNavigate()
 
     const handleLogIn = (data) => {
@@ -67,7 +68,7 @@ const LogIn = () => {
                         if (data?.token) {
                             localStorage.setItem('flight-token', data?.token)
                             toast.success('Log in successful')
-                            navigate('/')
+                            navigate(from)
                         }
                     })
                     .catch(error => {

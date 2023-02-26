@@ -13,6 +13,7 @@ import LogIn from '../Pages/LogIn/LogIn'
 import PasswordReset from '../Pages/LogIn/PasswordReset'
 import Register from '../Pages/Register/Register'
 import Error from '../Pages/Shared/Error/Error'
+import PrivateRoute from './PrivateRoute'
 
 export const router = createBrowserRouter([
     {
@@ -45,27 +46,27 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             },
             {
                 path: '/dashboard/allCompany',
-                element: <AllCompany></AllCompany>
+                element: <PrivateRoute><AllCompany></AllCompany></PrivateRoute>
             },
             {
                 path: '/dashboard/allUser',
-                element: <AllUser></AllUser>
+                element: <PrivateRoute><AllUser></AllUser></PrivateRoute>
             },
             {
                 path: '/dashboard/addFlight',
-                element: <AddFlight></AddFlight>
+                element: <PrivateRoute><AddFlight></AddFlight></PrivateRoute>
             },
             {
                 path: '/dashboard/allFlight',
-                element: <AllFlight></AllFlight>
+                element: <PrivateRoute><AllFlight></AllFlight></PrivateRoute>
             },
             {
                 path: '/dashboard/bookedFlight',
-                element: <BookedFlight></BookedFlight>
+                element: <PrivateRoute><BookedFlight></BookedFlight></PrivateRoute>
             },
         ]
     }
