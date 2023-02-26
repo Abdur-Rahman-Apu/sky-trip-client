@@ -1,4 +1,5 @@
 import React from 'react';
+import useFlight from '../../../customHooks/useFlight';
 import useRole from '../../../customHooks/useRole';
 import useUser from '../../../customHooks/useUser';
 
@@ -7,6 +8,8 @@ const Dashboard = () => {
     const [role] = useRole()
 
     const [data] = useUser()
+
+    const [flights] = useFlight()
 
     return (
         <div>
@@ -31,6 +34,28 @@ const Dashboard = () => {
                         <div className="card  bg-[#fed330] shadow-xl">
                             <div className="card-body">
                                 <h2 className="text-2xl font-bold text-center">Total Users</h2>
+                                <p className='text-xl text-center my-5'>{data?.user.length}</p>
+                            </div>
+                        </div>
+                    </>
+                }
+
+                {/* Company  */}
+                {
+                    role === 'Company' && <>
+
+                        {/* company  */}
+                        <div className="card h-44 shadow-xl bg-[#26de81]">
+                            <div className="card-body">
+                                <h2 className="text-2xl font-bold text-center">Total Flight</h2>
+                                <p className='text-xl text-center my-5'>{flights?.length}</p>
+                            </div>
+                        </div>
+
+                        {/* user  */}
+                        <div className="card  bg-[#fed330] shadow-xl">
+                            <div className="card-body">
+                                <h2 className="text-2xl font-bold text-center">Total Sold</h2>
                                 <p className='text-xl text-center my-5'>{data?.user.length}</p>
                             </div>
                         </div>

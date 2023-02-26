@@ -6,7 +6,7 @@ const useFlight = () => {
 
     const { user } = useContext(AuthContext)
 
-    const { data, refetch: flightRefetch } = useQuery({
+    const { data: flights, refetch: flightRefetch } = useQuery({
         queryKey: ['allFlights'],
         queryFn: async () => {
             const response = await fetch(`http://localhost:5000/showAllFlight?email=${user?.email}`)
@@ -14,7 +14,7 @@ const useFlight = () => {
             return data
         }
     })
-    return [data, flightRefetch]
+    return [flights, flightRefetch]
 };
 
 export default useFlight;

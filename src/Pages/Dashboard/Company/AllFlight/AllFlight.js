@@ -5,8 +5,8 @@ import ShowAllFlight from './ShowAllFlight';
 
 const AllFlight = () => {
 
-    const [data, flightRefetch] = useFlight()
-    console.log(data);
+    const [flights, flightRefetch] = useFlight()
+
 
 
     const handleDeleteFlight = (id) => {
@@ -39,7 +39,7 @@ const AllFlight = () => {
                     <tbody>
 
                         {
-                            data?.map(flight => <ShowAllFlight key={flight._id} flight={flight} handleDeleteFlight={handleDeleteFlight}></ShowAllFlight>)
+                            flights?.map(flight => <ShowAllFlight key={flight._id} flight={flight} handleDeleteFlight={handleDeleteFlight}></ShowAllFlight>)
                         }
 
                     </tbody>
