@@ -31,7 +31,7 @@ const BookModal = ({ flight, setFlight }) => {
                 if (data.acknowledged) {
                     toast.success("Booked")
                     setFlight(null)
-                    navigate('/')
+                    navigate('/dashboard/cart')
                 }
             })
     }

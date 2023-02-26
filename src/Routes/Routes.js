@@ -4,6 +4,7 @@ import DashboardLayout from '../Layouts/DashboardLayout'
 import Main from '../Layouts/Main'
 import AllCompany from '../Pages/Dashboard/Admin/AllCompany/AllCompany'
 import AllUser from '../Pages/Dashboard/Admin/AllUser/AllUser'
+import Cart from '../Pages/Dashboard/Buyer/Cart/Cart'
 import AddFlight from '../Pages/Dashboard/Company/AddFlight/AddFlight'
 import AllFlight from '../Pages/Dashboard/Company/AllFlight/AllFlight'
 import BookedFlight from '../Pages/Dashboard/Company/BookedFlight/BookedFlight'
@@ -42,6 +43,7 @@ export const router = createBrowserRouter([
                 path: '/flight',
                 element: <PrivateRoute><Flight></Flight></PrivateRoute>
             },
+
         ]
     },
     {
@@ -72,6 +74,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/bookedFlight',
                 element: <PrivateRoute><BookedFlight></BookedFlight></PrivateRoute>
+            },
+            {
+                path: '/dashboard/cart',
+                element: <PrivateRoute><Cart></Cart></PrivateRoute>
+            },
+            {
+                path: '/dashboard/paidFlight',
+                element: <PrivateRoute><Flight></Flight></PrivateRoute>
             },
         ]
     }
