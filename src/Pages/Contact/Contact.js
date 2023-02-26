@@ -37,25 +37,25 @@ const Contact = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form ref={form} onSubmit={sendEmail} className="card-body">
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label font-bold">
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" name='user_name' placeholder="Enter your name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label font-bold">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name='user_email' placeholder="Enter your email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label font-bold">
                                     <span className="label-text">Subject</span>
                                 </label>
                                 <input type="text" name='subject' placeholder="Enter your subject" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label font-bold">
                                     <span className="label-text">Message</span>
                                 </label>
                                 <textarea name='message' className="textarea textarea-bordered h-24" placeholder="message"></textarea>
