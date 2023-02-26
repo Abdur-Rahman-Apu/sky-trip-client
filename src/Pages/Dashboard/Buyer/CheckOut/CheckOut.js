@@ -114,7 +114,8 @@ const CheckOut = () => {
             const transactionInfo = {
                 transactionId: paymentIntent.id,
                 flightInfo: data,
-                buyerEmail: user?.email
+                buyerEmail: user?.email,
+                price
             }
             console.log("transaction info", transactionInfo);
 
