@@ -3,7 +3,7 @@ import useSpecificUser from '../../../customHooks/useSpecificUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faJetFighter } from '@fortawesome/free-solid-svg-icons'
 
-const ShowAllFlight = ({ flight }) => {
+const ShowAllFlight = ({ flight, setFlight }) => {
     console.log("flight", flight);
     const [specificUser] = useSpecificUser(flight?.companyEmail)
     console.log(specificUser);
@@ -20,7 +20,7 @@ const ShowAllFlight = ({ flight }) => {
                 <p>${flight?.price}</p>
             </div>
             <div >
-                <button className="btn btn-base bg-deepViolet rounded-full" disabled={flight?.seats === '0'}>Book</button>
+                <label htmlFor="my-modal-3" onClick={() => { setFlight(flight) }} className="btn btn-base bg-deepViolet rounded-full" disabled={flight?.seats === '0'}>Book</label>
             </div>
 
         </div>
