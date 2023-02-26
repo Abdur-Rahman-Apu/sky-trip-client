@@ -15,8 +15,9 @@ const DashboardLayout = () => {
     </>
 
     const companyMenu = <>
-        <li><Link>Add flight</Link></li>
-        <li><Link>All flight</Link></li>
+        <li><Link to='/dashboard/addFlight'>Add flight</Link></li>
+        <li><Link to='/dashboard/allFlight'>All flight</Link></li>
+        <li><Link to='/dashboard/bookedFlight'>Booked flight</Link></li>
     </>
 
     const userMenu = <>
@@ -45,6 +46,9 @@ const DashboardLayout = () => {
 
                         {
                             role === 'Admin' && adminMenu
+                        }
+                        {
+                            role === 'Company' && companyMenu
                         }
                     </ul>
 

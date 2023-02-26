@@ -4,6 +4,9 @@ import DashboardLayout from '../Layouts/DashboardLayout'
 import Main from '../Layouts/Main'
 import AllCompany from '../Pages/Dashboard/Admin/AllCompany/AllCompany'
 import AllUser from '../Pages/Dashboard/Admin/AllUser/AllUser'
+import AddFlight from '../Pages/Dashboard/Company/AddFlight/AddFlight'
+import AllFlight from '../Pages/Dashboard/Company/AllFlight/AllFlight'
+import BookedFlight from '../Pages/Dashboard/Company/BookedFlight/BookedFlight'
 import Dashboard from '../Pages/Dashboard/Dasboard/Dashboard'
 import Home from '../Pages/Home/Home/Home'
 import LogIn from '../Pages/LogIn/LogIn'
@@ -51,6 +54,18 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allUser',
                 element: <AllUser></AllUser>
+            },
+            {
+                path: '/dashboard/addFlight',
+                element: <AddFlight></AddFlight>
+            },
+            {
+                path: '/dashboard/allFlight',
+                element: <AllFlight></AllFlight>
+            },
+            {
+                path: '/dashboard/bookedFlight',
+                element: <BookedFlight></BookedFlight>
             },
         ]
     }
