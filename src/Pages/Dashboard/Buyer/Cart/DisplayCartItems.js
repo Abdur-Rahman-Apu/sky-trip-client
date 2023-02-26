@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import useSpecificUser from '../../../../customHooks/useSpecificUser';
 
 const DisplayCartItems = ({ book, handleCartItem }) => {
@@ -29,21 +30,21 @@ const DisplayCartItems = ({ book, handleCartItem }) => {
 
     console.log(specificUser);
 
-    const { name, image } = specificUser
+
 
     console.log(flightInfo);
     return (
         <tr>
 
-            <td><img src={image} alt="company pic" /></td>
-            <td>{name}</td>
+            <td><img src={specificUser?.image} alt="company pic" /></td>
+            <td>{specificUser?.name}</td>
             <td>{from}</td>
             <td>{destination}</td>
             <td>{time}</td>
             <td>{seat}</td>
             <td>{price * seat}</td>
             <th>
-                <button className="btn btn-info btn-xs mr-3">Pay</button>
+                <Link to={`/dashboard/payment/${bookId}`}><button className="btn btn-info btn-xs mr-3">Pay</button></Link>
                 <button onClick={() => handleCartItem(bookId, flightId)} className="btn btn-error btn-xs">Delete</button>
             </th>
         </tr>

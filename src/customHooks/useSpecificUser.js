@@ -4,7 +4,7 @@ const useSpecificUser = (companyEmail) => {
 
 
     const { data: specificUser, refetch: refetchUser } = useQuery({
-        queryKey: ['user'],
+        queryKey: ['specificCompany'],
         queryFn: async () => {
             const response = await fetch(`http://localhost:5000/user?email=${companyEmail}`)
             const data = response.json()

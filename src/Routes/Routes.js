@@ -6,6 +6,8 @@ import Contact from '../Pages/Contact/Contact'
 import AllCompany from '../Pages/Dashboard/Admin/AllCompany/AllCompany'
 import AllUser from '../Pages/Dashboard/Admin/AllUser/AllUser'
 import Cart from '../Pages/Dashboard/Buyer/Cart/Cart'
+import PaidFlight from '../Pages/Dashboard/Buyer/PaidFlight/PaidFlight'
+import Payment from '../Pages/Dashboard/Buyer/Payment/Payment'
 import AddFlight from '../Pages/Dashboard/Company/AddFlight/AddFlight'
 import AllFlight from '../Pages/Dashboard/Company/AllFlight/AllFlight'
 import BookedFlight from '../Pages/Dashboard/Company/BookedFlight/BookedFlight'
@@ -87,6 +89,15 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/paidFlight',
                 element: <PrivateRoute><Flight></Flight></PrivateRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
+            },
+            {
+                path: '/dashboard/userPaid',
+                element: <PrivateRoute><PaidFlight></PaidFlight></PrivateRoute>
             },
         ]
     }

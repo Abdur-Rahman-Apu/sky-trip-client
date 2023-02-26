@@ -22,7 +22,7 @@ const DashboardLayout = () => {
 
     const userMenu = <>
         <li><Link to='/dashboard/cart'>Cart</Link></li>
-        <li><Link to='/dashboard/paidFlight'>Paid flight</Link></li>
+        <li><Link to='/dashboard/userPaid'>Paid flight</Link></li>
     </>
     return (
         <div>
