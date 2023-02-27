@@ -23,19 +23,14 @@ const Flight = () => {
             })
     }, [])
 
-
-
+    //search functionality
     const handleSearch = (event) => {
         event.preventDefault()
         const search = event.target.search.value;
-        console.log(search);
-
 
         fetch(`https://skytrip.vercel.app/searchFlight?search=${search}`)
             .then(res => res.json())
             .then(data => setAllFlight(data))
-
-
 
     }
 
