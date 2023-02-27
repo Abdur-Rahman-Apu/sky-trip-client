@@ -7,7 +7,7 @@ const DisplaySearchFlight = ({ item, setSearch }) => {
     const [specificUser] = useSpecificUser(item?.companyEmail)
     console.log("dSF", specificUser);
     return (
-        <div className="card card-side justify-between items-center px-10 bg-base-100 shadow-xl w-[70vw] mx-auto my-10">
+        <div className="card card-side flex-col md:flex-row p-3 justify-between items-center px-10 bg-base-100 shadow-xl w-[70vw] mx-auto my-10">
             <figure><img className='h-44' src={specificUser?.image} alt="Movie" /></figure>
 
             <div>
@@ -19,7 +19,7 @@ const DisplaySearchFlight = ({ item, setSearch }) => {
                 <p>${item?.price}</p>
             </div>
             <div >
-                <label htmlFor="my-modal-3" onClick={() => { setSearch(item) }} className="btn btn-base bg-deepViolet rounded-full" disabled={item?.seats === '0'}>Book</label>
+                <label htmlFor="my-modal-3" onClick={() => { setSearch(item) }} className="btn btn-base bg-deepViolet rounded-full my-3 md:my-0" disabled={item?.seats === '0'}>Book</label>
             </div>
 
         </div>
