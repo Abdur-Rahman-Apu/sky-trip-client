@@ -4,18 +4,19 @@ import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
+
     AOS.init();
 
     const navigate = useNavigate()
 
+
+    //search functionality
     const handleSearch = (event) => {
         event.preventDefault()
         const search = event.target.search.value;
-        console.log(search);
         navigate('/searchFlight', { state: search })
-
-
     }
+
     return (
         <div data-aos="fade-in">
             <div className='w-[50vw] mx-auto mt-28'>
