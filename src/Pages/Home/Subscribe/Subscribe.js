@@ -11,6 +11,7 @@ const Subscribe = () => {
         const email = event.target.email.value;
         toast.success(`${email} is subscribed`)
     }
+
     return (
         <div className='flex flex-col items-center py-28 bg-background'>
             <h1 className='text-2xl font-bold mb-7 text-center'>Subscribe Newsletters & Get Latest News</h1>

@@ -13,7 +13,9 @@ const LogIn = () => {
 
     const [visibility, setVisibility] = useState('show')
 
+    // password hide and show 
     const handleVisibility = (event) => {
+
         event.preventDefault()
         let passwordField = event.target.parentElement.parentElement.parentElement.children[1]
 
@@ -38,9 +40,9 @@ const LogIn = () => {
     const navigate = useNavigate()
 
     const handleLogIn = (data) => {
-        console.log(data);
 
         const { email, password } = data
+
         logIn(email, password)
             .then(result => {
 
@@ -50,7 +52,6 @@ const LogIn = () => {
 
                 const email = user?.email
 
-                console.log(email);
                 const userInfo = {
                     email: email
                 }
@@ -76,13 +77,10 @@ const LogIn = () => {
                         logOut()
 
                     })
-
-
             })
             .catch(error => {
                 toast.error('Log in failed.')
             })
-
 
     }
 
