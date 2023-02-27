@@ -27,8 +27,6 @@ const Dashboard = () => {
             })
     }, [user?.email])
 
-    console.log("paidFlight", paidFlight);
-
     return (
         <div>
             <h1 className='text-2xl text-deepViolet font-bold text-center my-10'>Welcome to Dashboard</h1>
@@ -101,9 +99,6 @@ const Dashboard = () => {
                     </>
                 }
             </div>
-
-
-
         </div>
     );
 };
