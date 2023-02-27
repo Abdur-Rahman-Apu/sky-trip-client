@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ShowAllFlight = ({ flight, handleDeleteFlight }) => {
+
     return (
         <tr>
             <td>{flight?.from}</td>

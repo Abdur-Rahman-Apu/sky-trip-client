@@ -16,8 +16,6 @@ const BookedFlight = () => {
             })
     }, [user?.email])
 
-    console.log("Company paid info", companyPaidInfo);
-
     return (
         <div>
             <div className="overflow-x-auto">

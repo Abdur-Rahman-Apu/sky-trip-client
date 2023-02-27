@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DisplayCompanyPaidInfo = ({ item }) => {
-    console.log(item);
+
     return (
         <tr>
             <td>{item?.buyerEmail}</td>
