@@ -41,13 +41,13 @@ const Flight = () => {
 
     return (
         <div>
-            <form onSubmit={handleSearch} className='flex justify-center mt-10'>
-                <div className="form-control  w-1/2 mr-4">
+            <form onSubmit={handleSearch} className='flex flex-col md:flex-row justify-center mt-10'>
+                <div className="form-control mb-5 md:mb-0  md:w-1/2 mr-4">
 
                     <input type="text" name='search' placeholder="Enter location" className="input input-bordered w-full" />
 
                 </div>
-                <input className='btn btn-info btn-md text-white font-bold' type="submit" value="Search" />
+                <input className='btn btn-info btn-md text-white font-bold ' type="submit" value="Search" />
             </form>
             {
                 allFlight.length === 0 ? <p className='text-center font-bold mt-10 text-red-500'>{Error}</p>
