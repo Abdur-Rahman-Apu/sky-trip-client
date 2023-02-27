@@ -7,16 +7,13 @@ import Load from "../assets/load.json";
 import { AuthContext } from '../Context/AuthProvider';
 
 const DashboardLayout = () => {
+
     const { loading } = useContext(AuthContext)
-
-
 
     const [role] = useRole()
 
     const location = useLocation()
 
-    console.log(location);
-    console.log(role);
     // menu 
     const adminMenu = <>
         <li><Link className={`${location.pathname === '/dashboard/allCompany' ? 'bg-black' : ''}`} to='/dashboard/allCompany'>All company</Link></li>
