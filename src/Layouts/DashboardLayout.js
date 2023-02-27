@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useRole from '../customHooks/useRole';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
+import Lottie from "lottie-react";
+import Load from "../assets/load.json";
+import { AuthContext } from '../Context/AuthProvider';
 
 const DashboardLayout = () => {
+    const { loading } = useContext(AuthContext)
+
+
 
     const [role] = useRole()
 
@@ -24,6 +30,12 @@ const DashboardLayout = () => {
         <li><Link to='/dashboard/cart'>Cart</Link></li>
         <li><Link to='/dashboard/userPaid'>Paid flight</Link></li>
     </>
+
+    if (loading) {
+        return <div className='w-[50vw] mx-auto'>
+            <Lottie animationData={Load} loop={true} />
+        </div>
+    }
     return (
         <div>
             <Navbar></Navbar>
