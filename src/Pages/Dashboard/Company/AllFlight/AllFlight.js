@@ -30,6 +30,7 @@ const AllFlight = () => {
                         <tr>
                             <th>From</th>
                             <th>Destination</th>
+                            <th>Flight Date</th>
                             <th>Flight Time</th>
                             <th>Seats</th>
                             <th>Price</th>

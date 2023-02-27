@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AuthProvider';
 
 const AddFlight = () => {
 
     const { user } = useContext(AuthContext)
+
+    const navigate = useNavigate()
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -13,10 +16,15 @@ const AddFlight = () => {
         console.log(data);
         const { from, destination, time, seats, price } = data;
 
+        const date = new Date()
+        date.setDate(date.getDate() + 3)
+        const flightDate = date.toJSON().slice(0, 10)
+
         const flightInfo = {
             companyEmail: user?.email,
             from,
             destination,
+            flightDate,
             time,
             seats,
             price
@@ -33,6 +41,7 @@ const AddFlight = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('Data added successfully')
+                    navigate('/dashboard/cart')
                 }
             })
     }
