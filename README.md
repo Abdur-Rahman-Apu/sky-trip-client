@@ -31,23 +31,29 @@ Sky-trip is a website of booking flight tickets.
 
 ## Screenshots
 
-![Home page](https://i.ibb.co/HB4LSNW/screencapture-phone-store-de866-web-app-2023-02-21-10-21-27.png)
+![Home page](src/assets/screenshots/sh-1.png)
 
-![Log in page](https://i.ibb.co/wz8c8Ls/screencapture-phone-store-de866-web-app-login-2023-02-21-10-26-34.png)
+![Light home page](src/assets/screenshots/sh-2.png)
 
-![Register page](https://i.ibb.co/xMr8N04/screencapture-phone-store-de866-web-app-register-2023-02-21-10-26-46.png)
+![Register page](src/assets/screenshots/sh-3.png)
 
-![Contact page](https://i.ibb.co/K7WfgR2/screencapture-phone-store-de866-web-app-contact-2023-02-21-10-23-47.png)
-
-
-![Profile page](https://i.ibb.co/Xt43dQK/screencapture-phone-store-de866-web-app-profile-2023-02-21-10-26-19.png)
-
-![Dahboard page](https://i.ibb.co/prXJTtQ/screencapture-phone-store-de866-web-app-dashboard-2023-02-21-10-24-03.png)
+![Log in](src/assets/screenshots/sh-4.png)
 
 
-![Toggle page](https://i.ibb.co/qFMZVDT/screencapture-phone-store-de866-web-app-dashboard-2023-02-21-10-27-22.png)
+![Contract](src/assets/screenshots/sh-5.png)
 
-![Seller page](https://i.ibb.co/ZmSVDdc/screencapture-phone-store-de866-web-app-dashboard-add-Item-2023-02-21-10-27-34.png)
+![Flights](src/assets/screenshots/sh-6.png)
+
+
+![Dashboard](src/assets/screenshots/sh-7.png)
+
+![User page](src/assets/screenshots/sh-8.png)
+
+![Cart page](src/assets/screenshots/sh-9.png)
+
+![Paid page](src/assets/screenshots/sh-10.png)
+
+## To see more, please visit the website. Thank you :)
 
 ## Tech Stack
 
