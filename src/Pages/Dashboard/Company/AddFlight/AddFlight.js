@@ -13,9 +13,10 @@ const AddFlight = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const handleAddFlight = (data) => {
-        console.log(data);
+
         const { from, destination, time, seats, price } = data;
 
+        //date set
         const date = new Date()
         date.setDate(date.getDate() + 200)
         const flightDate = date.toJSON().slice(0, 10)
