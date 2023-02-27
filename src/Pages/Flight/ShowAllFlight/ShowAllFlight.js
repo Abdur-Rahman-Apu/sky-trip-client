@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useSpecificUser from '../../../customHooks/useSpecificUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faJetFighter } from '@fortawesome/free-solid-svg-icons'
 
 const ShowAllFlight = ({ flight, setFlight }) => {
     console.log("flight", flight);
-    const [specificUser] = useSpecificUser(flight?.companyEmail)
-    console.log(specificUser);
+    const [specificUser, setSpecificUser] = useState(null)
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/user?email=${flight?.companyEmail}`)
+            .then(res => res.json())
+            .then(data => setSpecificUser(data))
+    }, [flight?.companyEmail])
+
+    console.log("specificUser", specificUser);
+
     return (
         <div className="card card-side flex-col p-3 md:flex-row justify-between items-center px-10 bg-base-100 shadow-xl w-[70vw] mx-auto my-10">
-            <figure><img className='h-44' src={specificUser?.image} alt="Movie" /></figure>
+            <figure><img className='w-[200px] object-cover' src={specificUser?.image} alt="Company pic" /></figure>
 
             <div>
                 <h2 className="text-xl font-bold">

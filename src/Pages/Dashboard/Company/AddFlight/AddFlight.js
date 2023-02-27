@@ -41,7 +41,7 @@ const AddFlight = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('Data added successfully')
-                    navigate('/dashboard/cart')
+                    navigate('/dashboard/allFlight')
                 }
             })
     }
