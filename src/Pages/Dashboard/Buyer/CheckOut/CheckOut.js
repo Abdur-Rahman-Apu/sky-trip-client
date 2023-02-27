@@ -113,7 +113,8 @@ const CheckOut = () => {
 
             const transactionInfo = {
                 transactionId: paymentIntent.id,
-                flightInfo: data,
+                bookInfo: data,
+                flightInfo,
                 buyerEmail: user?.email,
                 price
             }
