@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faJetFighter } from '@fortawesome/free-solid-svg-icons'
 
 const DisplaySearchFlight = ({ item, setItem }) => {
+
     const [specificUser] = useSpecificUser(item?.companyEmail)
-    console.log("dSF", specificUser);
+
     return (
         <div className="card card-side flex-col md:flex-row p-3 justify-between items-center px-10 bg-base-100 shadow-xl w-[70vw] mx-auto my-10">
             <figure><img className='h-44' src={specificUser?.image} alt="Movie" /></figure>
