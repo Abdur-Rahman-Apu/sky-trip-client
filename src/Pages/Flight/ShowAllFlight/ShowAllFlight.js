@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import useSpecificUser from '../../../customHooks/useSpecificUser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faJetFighter } from '@fortawesome/free-solid-svg-icons'
 
 const ShowAllFlight = ({ flight, setFlight }) => {
-    console.log("flight", flight);
+
     const [specificUser, setSpecificUser] = useState(null)
 
     useEffect(() => {
@@ -12,8 +11,6 @@ const ShowAllFlight = ({ flight, setFlight }) => {
             .then(res => res.json())
             .then(data => setSpecificUser(data))
     }, [flight?.companyEmail])
-
-    console.log("specificUser", specificUser);
 
     return (
         <div className="card card-side flex-col p-3 md:flex-row justify-between items-center px-10 bg-base-100 shadow-xl w-[70vw] mx-auto my-10">
