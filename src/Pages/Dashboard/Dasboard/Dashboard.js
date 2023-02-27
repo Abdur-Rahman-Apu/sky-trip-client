@@ -20,12 +20,14 @@ const Dashboard = () => {
     const [paidFlight, setPaidFlight] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/specificPaidFlight?email=${user?.email}`)
+        fetch(`http://localhost:5000/companyPaidInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setPaidFlight(data)
             })
     }, [user?.email])
+
+    console.log("paidFlight", paidFlight);
 
     return (
         <div>
@@ -72,7 +74,7 @@ const Dashboard = () => {
                         <div className="card  bg-[#fed330] shadow-xl">
                             <div className="card-body">
                                 <h2 className="text-2xl font-bold text-center">Total Sold</h2>
-                                <p className='text-xl text-center my-5'>{data?.user.length}</p>
+                                <p className='text-xl text-center my-5'>{paidFlight?.length}</p>
                             </div>
                         </div>
                     </>
