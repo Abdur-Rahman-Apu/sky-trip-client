@@ -7,8 +7,6 @@ const AllFlight = () => {
 
     const [flights, flightRefetch] = useFlight()
 
-
-
     const handleDeleteFlight = (id) => {
         fetch(`https://skytrip.vercel.app/deleteFlight/${id}`, {
             method: 'DELETE'
