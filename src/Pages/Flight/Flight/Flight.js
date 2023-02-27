@@ -50,7 +50,7 @@ const Flight = () => {
                 <input className='btn btn-info btn-md text-white font-bold ' type="submit" value="Search" />
             </form>
             {
-                allFlight.length === 0 ? <p className='text-center font-bold mt-10 text-red-500'>{Error}</p>
+                allFlight.length === 0 ? <p className='text-center font-bold mt-10 text-red-500 my-10'>No data found</p>
                     :
                     allFlight?.map(flight => <ShowAllFlight key={flight._id} flight={flight} setFlight={setFlight}></ShowAllFlight>)
             }
