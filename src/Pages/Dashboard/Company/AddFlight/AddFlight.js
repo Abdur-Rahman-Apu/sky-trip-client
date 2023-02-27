@@ -17,7 +17,7 @@ const AddFlight = () => {
         const { from, destination, time, seats, price } = data;
 
         const date = new Date()
-        date.setDate(date.getDate() + 3)
+        date.setDate(date.getDate() + 200)
         const flightDate = date.toJSON().slice(0, 10)
 
         const flightInfo = {
