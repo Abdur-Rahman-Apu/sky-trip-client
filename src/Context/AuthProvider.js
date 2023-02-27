@@ -46,12 +46,6 @@ const AuthProvider = ({ children }) => {
         return unSubscribe()
     }, [user])
 
-    //delete a user
-    const deleteUserAccount = () => {
-        const user = auth.currentUser
-        return deleteUser(user)
-    }
-
 
     // log out 
     const logOut = () => {
@@ -67,7 +61,6 @@ const AuthProvider = ({ children }) => {
         updateInfo,
         loading,
         setLoading,
-        deleteUserAccount,
         logOut
 
     }
