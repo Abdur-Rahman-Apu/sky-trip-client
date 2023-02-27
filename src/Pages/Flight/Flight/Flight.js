@@ -47,7 +47,7 @@ const Flight = () => {
                     <input type="text" name='search' placeholder="Enter location" className="input input-bordered w-full" />
 
                 </div>
-                <input className='btn btn-info btn-md text-white font-bold ' type="submit" value="Search" />
+                <input className='btn bg-deepViolet btn-md text-white font-bold ' type="submit" value="Search" />
             </form>
             {
                 allFlight.length === 0 ? <p className='text-center font-bold mt-10 text-red-500 my-10'>No data found</p>
