@@ -26,18 +26,26 @@ const DisplayCartItems = ({ book, handleCartItem }) => {
 
     const { _id: flightId, companyEmail, from, destination, time, price } = flightInfo
 
-    const [specificUser] = useSpecificUser(companyEmail)
+    console.log("Company email", companyEmail);
 
-    console.log(specificUser);
 
+    const [company, setCompany] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/user?email=${flightInfo?.companyEmail}`)
+            .then(res => res.json())
+            .then(data => setCompany(data))
+    }, [flightInfo?.companyEmail])
 
 
     console.log(flightInfo);
+
+
     return (
         <tr>
 
-            <td><img src={specificUser?.image} alt="company pic" /></td>
-            <td>{specificUser?.name}</td>
+            <td><img src={company?.image} alt="company pic" /></td>
+            <td>{company?.name}</td>
             <td>{from}</td>
             <td>{destination}</td>
             <td>{time}</td>

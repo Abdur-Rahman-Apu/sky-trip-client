@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../Context/AuthProvider';
+import useSpecificUser from '../../../customHooks/useSpecificUser';
 import './Navbar.css'
 
 const Navbar = () => {
@@ -43,6 +44,19 @@ const Navbar = () => {
     </>
 
 
+
+    const [specificUser, setSpecificUser] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/user?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setSpecificUser(data)
+            })
+    }, [user?.email])
+
+
+
     return (
         <div className="navbar  p-6 shadow-lg w-full bg-[#f1f4f4] dark:bg-gray-900 dark:text-white">
             <div className="navbar-start">
@@ -69,10 +83,10 @@ const Navbar = () => {
                 {
                     user && <>
 
-                        <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                        <div className="tooltip tooltip-bottom " data-tip={user?.displayName}>
                             <div className="avatar online mr-3">
-                                <div className="w-14 rounded-full " >
-                                    <img src={user?.photoURL} alt='img' />
+                                <div className="w-14 border border-gray-500 rounded-full " >
+                                    <img src={specificUser?.image} alt='img' />
                                 </div>
                             </div>
                         </div>
