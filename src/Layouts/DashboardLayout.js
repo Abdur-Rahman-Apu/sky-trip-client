@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import useRole from '../customHooks/useRole';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 import Lottie from "lottie-react";
@@ -13,22 +13,25 @@ const DashboardLayout = () => {
 
     const [role] = useRole()
 
+    const location = useLocation()
+
+    console.log(location);
     console.log(role);
     // menu 
     const adminMenu = <>
-        <li><Link to='/dashboard/allCompany'>All company</Link></li>
-        <li><Link to='/dashboard/allUser'>All user</Link></li>
+        <li><Link className={`${location.pathname === '/dashboard/allCompany' ? 'bg-black' : ''}`} to='/dashboard/allCompany'>All company</Link></li>
+        <li><Link className={`${location.pathname === '/dashboard/allUser' ? 'bg-black' : ''}`} to='/dashboard/allUser'>All user</Link></li>
     </>
 
     const companyMenu = <>
-        <li><Link to='/dashboard/addFlight'>Add flight</Link></li>
-        <li><Link to='/dashboard/allFlight'>All flight</Link></li>
-        <li><Link to='/dashboard/bookedFlight'>Booked flight</Link></li>
+        <li><Link className={`${location.pathname === '/dashboard/addFlight' ? 'bg-black' : ''}`} to='/dashboard/addFlight'>Add flight</Link></li>
+        <li><Link className={`${location.pathname === '/dashboard/allFlight' ? 'bg-black' : ''}`} to='/dashboard/allFlight'>All flight</Link></li>
+        <li><Link className={`${location.pathname === '/dashboard/bookedFlight' ? 'bg-black' : ''}`} to='/dashboard/bookedFlight'>Booked flight</Link></li>
     </>
 
     const userMenu = <>
-        <li><Link to='/dashboard/cart'>Cart</Link></li>
-        <li><Link to='/dashboard/userPaid'>Paid flight</Link></li>
+        <li><Link className={`${location.pathname === '/dashboard/cart' ? 'bg-black' : ''}`} to='/dashboard/cart'>Cart</Link></li>
+        <li><Link className={`${location.pathname === '/dashboard/userPaid' ? 'bg-black' : ''}`} to='/dashboard/userPaid'>Paid flight</Link></li>
     </>
 
     if (loading) {
