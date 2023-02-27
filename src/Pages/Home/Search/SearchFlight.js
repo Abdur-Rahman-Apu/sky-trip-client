@@ -10,6 +10,8 @@ const SearchFlight = () => {
 
     const [search, setSearch] = useState([])
 
+    const [item, setItem] = useState(null)
+
     useEffect(() => {
         fetch(`http://localhost:5000/searchFlight?search=${data}`)
             .then(res => res.json())
@@ -20,10 +22,10 @@ const SearchFlight = () => {
     return (
         <div>
             {
-                search.map(item => <DisplaySearchFlight key={item._id} item={item} setSearch={setSearch}></DisplaySearchFlight>)
+                search?.map(item => <DisplaySearchFlight key={item._id} item={item} setItem={setItem}></DisplaySearchFlight>)
             }
             {
-                search && <BookModal flight={search} setFlight={setSearch}></BookModal>
+                item && <BookModal flight={item} setFlight={setItem}></BookModal>
             }
         </div>
     );
