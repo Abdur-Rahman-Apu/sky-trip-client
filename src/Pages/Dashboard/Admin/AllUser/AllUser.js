@@ -4,10 +4,10 @@ import useUser from '../../../../customHooks/useUser';
 import DisplayUser from './DisplayUser';
 
 const AllUser = () => {
+
     const [users, refetch] = useUser()
 
     const handleDelete = (id) => {
-        console.log(id);
 
         fetch(`https://skytrip.vercel.app/deleteUser/${id}`, {
             method: 'DELETE'
@@ -41,7 +41,6 @@ const AllUser = () => {
                         }
 
                     </tbody>
-
 
                 </table>
             }

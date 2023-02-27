@@ -8,15 +8,12 @@ const CheckOut = () => {
 
     const { user } = useContext(AuthContext)
 
-    console.log(user);
-
     const navigate = useNavigate()
 
     const stripe = useStripe();
     const elements = useElements();
 
     const data = useLoaderData()
-    console.log("Pay", data);
 
     const [flightInfo, setFlightInfo] = useState([])
 
@@ -28,12 +25,7 @@ const CheckOut = () => {
             })
     }, [data?.flightId])
 
-    console.log("flight info", flightInfo);
-
-
     const price = parseInt(data?.seat) * parseInt(flightInfo?.price)
-
-    console.log(price);
 
     const [clientSecret, setClientSecret] = useState(null)
 
@@ -100,8 +92,6 @@ const CheckOut = () => {
 
         setProcessing(false)
 
-
-
         if (confirmError) {
             setErrorMsg(confirmError)
         }
@@ -118,7 +108,6 @@ const CheckOut = () => {
                 buyerEmail: user?.email,
                 price
             }
-            console.log("transaction info", transactionInfo);
 
             fetch(`https://skytrip.vercel.app/paid`, {
                 method: 'POST',

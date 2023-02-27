@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import useSpecificUser from '../../../../customHooks/useSpecificUser';
 
 const DisplayCartItems = ({ book, handleCartItem }) => {
-
-    console.log(book);
 
     const { _id: bookId, seat } = book;
 
     const [flightInfo, setFlightInfo] = useState([])
-
-
 
     useEffect(() => {
         fetch(`https://skytrip.vercel.app/flight/${book.flightId}`)
@@ -24,10 +19,7 @@ const DisplayCartItems = ({ book, handleCartItem }) => {
             })
     }, [book.flightId])
 
-    const { _id: flightId, companyEmail, from, destination, time, price } = flightInfo
-
-    console.log("Company email", companyEmail);
-
+    const { _id: flightId, from, destination, time, price } = flightInfo
 
     const [company, setCompany] = useState([])
 
@@ -36,9 +28,6 @@ const DisplayCartItems = ({ book, handleCartItem }) => {
             .then(res => res.json())
             .then(data => setCompany(data))
     }, [flightInfo?.companyEmail])
-
-
-    console.log(flightInfo);
 
 
     return (

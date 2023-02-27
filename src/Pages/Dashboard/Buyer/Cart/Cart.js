@@ -7,9 +7,7 @@ const Cart = () => {
 
     const [booked, bookedRefetch] = useBooked()
 
-
     const handleCartItem = (bookId, flightId) => {
-        console.log(bookId, flightId);
 
         fetch(`https://skytrip.vercel.app/deleteFromCart?bookId=${bookId}&flightId=${flightId}`, {
             method: 'DELETE'
