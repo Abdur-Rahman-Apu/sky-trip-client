@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const ShowPaidFlight = ({ item }) => {
-
-    console.log("item", item);
-
-
 
     return (
         <tr>
