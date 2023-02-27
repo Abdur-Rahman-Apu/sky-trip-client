@@ -10,14 +10,12 @@ import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
+
     const [visibility, setVisibility] = useState('show')
-
-
-
-
 
     // handle password show and hide 
     const handleVisibility = (event) => {
+
         event.preventDefault()
         let passwordField = event.target.parentElement.parentElement.parentElement.children[1]
 
@@ -31,8 +29,6 @@ const Register = () => {
     }
 
 
-
-
     //register
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -41,11 +37,11 @@ const Register = () => {
     const navigate = useNavigate()
 
     const handleRegister = (data) => {
-        console.log(data);
+
         const { name, identity, mail, password } = data
 
         const image = data.image[0]
-        console.log(image);
+
         const uri = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_imgBB}`
 
         const formData = new FormData()
@@ -56,7 +52,7 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(imgData => {
-                console.log(imgData);
+
                 signUp(mail, password)
                     .then(result => {
                         const user = result.user
@@ -85,7 +81,7 @@ const Register = () => {
                                 })
                                     .then(res => res.json())
                                     .then(data => {
-                                        console.log(data);
+
                                         if (data.acknowledged === true) {
 
                                             toast.success('Registration successful. Please log in');
@@ -96,17 +92,16 @@ const Register = () => {
                                                     toast.error('Log out failed')
                                                 })
 
-
                                         }
                                     })
                                     .catch(error => {
-                                        console.log(error);
+
                                         toast.error("Data store failed")
                                     })
 
                             })
                             .catch(error => {
-                                console.log("Update profile");
+
                                 toast.error('Registration failed');
                             })
 
