@@ -23,8 +23,32 @@ const Flight = () => {
             })
     }, [])
 
+
+
+    const handleSearch = (event) => {
+        event.preventDefault()
+        const search = event.target.search.value;
+        console.log(search);
+
+
+        fetch(`http://localhost:5000/searchFlight?search=${search}`)
+            .then(res => res.json())
+            .then(data => setAllFlight(data))
+
+
+
+    }
+
     return (
         <div>
+            <form onSubmit={handleSearch} className='flex justify-center mt-10'>
+                <div className="form-control  w-1/2 mr-4">
+
+                    <input type="text" name='search' placeholder="Enter location" className="input input-bordered w-full" />
+
+                </div>
+                <input className='btn btn-info btn-md text-white font-bold' type="submit" value="Search" />
+            </form>
             {
                 allFlight.length === 0 ? <p className='text-center font-bold mt-10 text-red-500'>{Error}</p>
                     :

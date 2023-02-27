@@ -14,6 +14,7 @@ import BookedFlight from '../Pages/Dashboard/Company/BookedFlight/BookedFlight'
 import Dashboard from '../Pages/Dashboard/Dasboard/Dashboard'
 import Flight from '../Pages/Flight/Flight/Flight'
 import Home from '../Pages/Home/Home/Home'
+import SearchFlight from '../Pages/Home/Search/SearchFlight'
 import LogIn from '../Pages/LogIn/LogIn'
 import PasswordReset from '../Pages/LogIn/PasswordReset'
 import Register from '../Pages/Register/Register'
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path: '/resetPassword',
                 element: <PasswordReset></PasswordReset>
+            },
+            {
+                path: '/searchFlight',
+                element: <SearchFlight></SearchFlight>
             },
             {
                 path: '/flight',
