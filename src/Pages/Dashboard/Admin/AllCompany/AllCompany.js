@@ -8,7 +8,6 @@ const AllCompany = () => {
     const [users, refetch] = useUser()
 
     const handleDelete = (id) => {
-        console.log(id);
 
         fetch(`https://skytrip.vercel.app/deleteUser/${id}`, {
             method: 'DELETE'

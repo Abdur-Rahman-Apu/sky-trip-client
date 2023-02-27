@@ -12,10 +12,7 @@ const DisplayCompany = ({ company, handleDelete }) => {
                 <h1 className='font-bold'>{name}</h1>
             </td>
             <td>
-
                 <img className='w-36' src={image} alt="img" />
-
-
             </td>
 
             <td>
