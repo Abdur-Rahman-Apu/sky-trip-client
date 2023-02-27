@@ -6,6 +6,7 @@ import DisplaySearchFlight from './DisplaySearchFlight';
 const SearchFlight = () => {
 
     const location = useLocation()
+
     const data = location.state;
 
     const [search, setSearch] = useState([])
@@ -18,7 +19,6 @@ const SearchFlight = () => {
             .then(data => setSearch(data))
     }, [data])
 
-    console.log(search);
     return (
         <div>
             {
