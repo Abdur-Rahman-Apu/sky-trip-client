@@ -9,7 +9,7 @@ const useBooked = () => {
     const { data: booked, refetch: bookedRefetch } = useQuery({
         queryKey: ['booked'],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/booked?email=${user?.email}`)
+            const response = await fetch(`https://skytrip.vercel.app/booked?email=${user?.email}`)
             const data = response.json()
             return data
         }

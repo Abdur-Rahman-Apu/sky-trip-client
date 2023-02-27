@@ -6,7 +6,7 @@ const useSpecificUser = (companyEmail) => {
     const { data: specificUser, refetch: refetchUser } = useQuery({
         queryKey: ['specificCompany'],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/user?email=${companyEmail}`)
+            const response = await fetch(`https://skytrip.vercel.app/user?email=${companyEmail}`)
             const data = response.json()
             return data
         }

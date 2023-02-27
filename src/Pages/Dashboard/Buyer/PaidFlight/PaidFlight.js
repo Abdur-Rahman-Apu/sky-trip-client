@@ -10,7 +10,7 @@ const PaidFlight = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/specificPaidFlight?email=${user?.email}`)
+        fetch(`https://skytrip.vercel.app/specificPaidFlight?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setPaidFlight(data)

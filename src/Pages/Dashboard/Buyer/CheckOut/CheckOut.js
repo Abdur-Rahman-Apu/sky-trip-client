@@ -21,7 +21,7 @@ const CheckOut = () => {
     const [flightInfo, setFlightInfo] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/flight/${data?.flightId}`)
+        fetch(`https://skytrip.vercel.app/flight/${data?.flightId}`)
             .then(res => res.json())
             .then(data => {
                 setFlightInfo(data)
@@ -43,7 +43,7 @@ const CheckOut = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/create-payment-intent`, {
+        fetch(`https://skytrip.vercel.app/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -120,7 +120,7 @@ const CheckOut = () => {
             }
             console.log("transaction info", transactionInfo);
 
-            fetch(`http://localhost:5000/paid`, {
+            fetch(`https://skytrip.vercel.app/paid`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

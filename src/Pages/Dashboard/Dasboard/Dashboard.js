@@ -20,7 +20,7 @@ const Dashboard = () => {
     const [paidFlight, setPaidFlight] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/companyPaidInfo?email=${user?.email}`)
+        fetch(`https://skytrip.vercel.app/companyPaidInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setPaidFlight(data)

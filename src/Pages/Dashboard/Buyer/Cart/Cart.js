@@ -11,7 +11,7 @@ const Cart = () => {
     const handleCartItem = (bookId, flightId) => {
         console.log(bookId, flightId);
 
-        fetch(`http://localhost:5000/deleteFromCart?bookId=${bookId}&flightId=${flightId}`, {
+        fetch(`https://skytrip.vercel.app/deleteFromCart?bookId=${bookId}&flightId=${flightId}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -9,7 +9,7 @@ const AllUser = () => {
     const handleDelete = (id) => {
         console.log(id);
 
-        fetch(`http://localhost:5000/deleteUser/${id}`, {
+        fetch(`https://skytrip.vercel.app/deleteUser/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

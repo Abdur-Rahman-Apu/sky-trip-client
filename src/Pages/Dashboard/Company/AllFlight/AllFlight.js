@@ -10,7 +10,7 @@ const AllFlight = () => {
 
 
     const handleDeleteFlight = (id) => {
-        fetch(`http://localhost:5000/deleteFlight/${id}`, {
+        fetch(`https://skytrip.vercel.app/deleteFlight/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

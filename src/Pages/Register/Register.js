@@ -76,7 +76,7 @@ const Register = () => {
                                     password
                                 }
 
-                                fetch(`http://localhost:5000/users`, {
+                                fetch(`https://skytrip.vercel.app/users`, {
                                     method: 'POST',
                                     headers: {
                                         'content-type': 'application/json'

@@ -4,7 +4,7 @@
 Sky-trip is a website of booking flight tickets.
 
 
-### Live website link: [https://phone-store-de866.web.app/)
+### Live website link: [https://sky-trip-8a062.web.app)
 
 ![Logo](src/assets/logo.png)
 

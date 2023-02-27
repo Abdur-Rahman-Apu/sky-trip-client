@@ -8,7 +8,7 @@ const ShowAllFlight = ({ flight, setFlight }) => {
     const [specificUser, setSpecificUser] = useState(null)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${flight?.companyEmail}`)
+        fetch(`https://skytrip.vercel.app/user?email=${flight?.companyEmail}`)
             .then(res => res.json())
             .then(data => setSpecificUser(data))
     }, [flight?.companyEmail])

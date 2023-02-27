@@ -13,7 +13,7 @@ const SearchFlight = () => {
     const [item, setItem] = useState(null)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/searchFlight?search=${data}`)
+        fetch(`https://skytrip.vercel.app/searchFlight?search=${data}`)
             .then(res => res.json())
             .then(data => setSearch(data))
     }, [data])

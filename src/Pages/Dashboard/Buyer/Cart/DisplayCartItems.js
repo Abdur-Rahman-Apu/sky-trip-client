@@ -14,7 +14,7 @@ const DisplayCartItems = ({ book, handleCartItem }) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/flight/${book.flightId}`)
+        fetch(`https://skytrip.vercel.app/flight/${book.flightId}`)
             .then(res => res.json())
             .then(data => {
                 setFlightInfo(data)
@@ -32,7 +32,7 @@ const DisplayCartItems = ({ book, handleCartItem }) => {
     const [company, setCompany] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${flightInfo?.companyEmail}`)
+        fetch(`https://skytrip.vercel.app/user?email=${flightInfo?.companyEmail}`)
             .then(res => res.json())
             .then(data => setCompany(data))
     }, [flightInfo?.companyEmail])

@@ -19,7 +19,7 @@ const BookModal = ({ flight, setFlight }) => {
             buyerEmail: user?.email
         }
 
-        fetch(`http://localhost:5000/bookFlight`, {
+        fetch(`https://skytrip.vercel.app/bookFlight`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

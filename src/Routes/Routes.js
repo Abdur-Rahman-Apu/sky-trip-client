@@ -98,7 +98,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
+                loader: ({ params }) => fetch(`https://skytrip.vercel.app/book/${params.id}`)
             },
             {
                 path: '/dashboard/userPaid',

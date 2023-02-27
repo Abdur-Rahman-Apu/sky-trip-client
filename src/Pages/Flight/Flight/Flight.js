@@ -12,7 +12,7 @@ const Flight = () => {
     const [flight, setFlight] = useState(null)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allFlight`)
+        fetch(`https://skytrip.vercel.app/allFlight`)
             .then(res => res.json())
             .then(data => {
                 setAllFlight(data)
@@ -31,7 +31,7 @@ const Flight = () => {
         console.log(search);
 
 
-        fetch(`http://localhost:5000/searchFlight?search=${search}`)
+        fetch(`https://skytrip.vercel.app/searchFlight?search=${search}`)
             .then(res => res.json())
             .then(data => setAllFlight(data))
 

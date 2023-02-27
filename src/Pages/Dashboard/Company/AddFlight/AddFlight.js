@@ -30,7 +30,7 @@ const AddFlight = () => {
             price
         }
 
-        fetch(`http://localhost:5000/addFlight`, {
+        fetch(`https://skytrip.vercel.app/addFlight`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

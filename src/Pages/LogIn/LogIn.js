@@ -55,7 +55,7 @@ const LogIn = () => {
                     email: email
                 }
 
-                fetch(`http://localhost:5000/jwt`, {
+                fetch(`https://skytrip.vercel.app/jwt`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

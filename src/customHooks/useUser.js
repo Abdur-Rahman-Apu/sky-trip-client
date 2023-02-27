@@ -9,7 +9,7 @@ const useUser = (email) => {
     const { data, refetch } = useQuery({
         queryKey: ['allUsers'],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/users`)
+            const response = await fetch(`https://skytrip.vercel.app/users`)
             const data = response.json()
             return data
         }
