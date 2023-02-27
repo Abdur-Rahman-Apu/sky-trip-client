@@ -10,12 +10,9 @@ const Navbar = () => {
 
     const { user, logOut, setUser } = useContext(AuthContext)
 
-
     const location = useLocation()
 
-
     const [theme, setTheme] = useState(null)
-
 
     useEffect(() => {
         if ((window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -42,8 +39,6 @@ const Navbar = () => {
         }
         <li><Link to='/contact' className={`${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link></li>
     </>
-
-
 
     const [specificUser, setSpecificUser] = useState([])
 
