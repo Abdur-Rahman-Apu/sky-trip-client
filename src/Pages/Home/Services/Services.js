@@ -3,11 +3,10 @@ import window from '../../../assets/window-1.jpg'
 import window2 from '../../../assets/window-2.jpg'
 import window3 from '../../../assets/window-3.jpg'
 import './Services.css'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 const Services = () => {
-    AOS.init();
+
     return (
         <div className='px-16 h-[1400px] py-28 md:h-auto'>
             <div className='text-center dark:text-white'>
@@ -16,7 +15,7 @@ const Services = () => {
                 <p className='text-paraColor'>Find help with booking and travel plans. See what to expect along the journey!</p>
             </div>
             <div className='flex flex-col md:flex-row mt-28 gap-10 dark:text-white'>
-                <div className='basis-1/2' data-aos="slide-left">
+                <div className='basis-1/2' >
                     <div>
                         <span className="badge badge-lg bg-blue-600 border-0 mb-2 font-semibold">01</span>
                         <h1 className='text-xl font-bold mb-3'>Travel requirements for Dubai</h1>
@@ -36,7 +35,7 @@ const Services = () => {
                     </div>
 
                 </div>
-                <div className='basis-1/2 services relative flex justify-center' data-aos="slide-right">
+                <div className='basis-1/2 services relative flex justify-center' >
                     <div className='rounded-full w-40 lg:w-52 h-[200px] lg:h-[300px] z-30 absolute top-36 left-20'>
                         <img className=' h-full object-cover hidden lg:block ' src={window} alt="benefit-img" />
                     </div>
