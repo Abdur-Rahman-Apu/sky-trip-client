@@ -37,7 +37,7 @@ const LogIn = () => {
     handleSubmit,
   } = useForm({
     defaultValues: {
-      email: "abdurrahman@gmail.com",
+      email: "apu@gmail.com",
       password: "123456",
     },
   });
