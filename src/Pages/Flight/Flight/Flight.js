@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import useRole from "../../../customHooks/useRole";
 import Loading from "../../Shared/Loading/Loading";
 import BookModal from "../BookModal/BookModal";
 import ShowAllFlight from "../ShowAllFlight/ShowAllFlight";
 
 const Flight = () => {
   const [allFlight, setAllFlight] = useState([]);
+  const [role] = useRole();
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
@@ -67,7 +69,7 @@ const Flight = () => {
       </form>
       {allFlight.length === 0 ? (
         <p className="text-center font-bold mt-10 text-red-500 my-10">
-          No data found
+          No flights are found
         </p>
       ) : (
         allFlight?.map((flight) => (
@@ -75,6 +77,7 @@ const Flight = () => {
             key={flight._id}
             flight={flight}
             setFlight={setFlight}
+            role={role}
           ></ShowAllFlight>
         ))
       )}

@@ -14,32 +14,36 @@ const BookModal = ({ flight, setFlight }) => {
     const seat = event.target.seat.value;
 
     if (seat) {
-      const bookInfo = {
-        flightId: flight?._id,
-        seat,
-        buyerEmail: user?.email,
-      };
+      if (Number(seat) > Number(flight?.seats)) {
+        toast.error(`Only ${flight?.seats} seats are available`);
+      } else {
+        const bookInfo = {
+          flightId: flight?._id,
+          seat,
+          buyerEmail: user?.email,
+        };
 
-      fetch(`https://skytrip.vercel.app/bookFlight`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(bookInfo),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            toast.success("Booked");
-            setFlight(null);
-            navigate("/dashboard/cart");
-          } else {
-            toast.error("Failed to book");
-          }
+        fetch(`https://skytrip.vercel.app/bookFlight`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(bookInfo),
         })
-        .catch((err) => {
-          toast.error("Failed to book");
-        });
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged) {
+              toast.success("Booked");
+              setFlight(null);
+              navigate("/dashboard/cart");
+            } else {
+              toast.error("Failed to book");
+            }
+          })
+          .catch((err) => {
+            toast.error("Failed to book");
+          });
+      }
     } else {
       toast.error("Please enter number of seats, you want to book");
     }
