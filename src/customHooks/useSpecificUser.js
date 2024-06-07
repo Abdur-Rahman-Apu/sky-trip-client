@@ -1,18 +1,25 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
 
 const useSpecificUser = (companyEmail) => {
+  console.log(companyEmail, "conmpany email");
+  const { data: specificUser, refetch: refetchUser } = useQuery({
+    queryKey: ["specificCompany"],
+    queryFn: async () => {
+      const response = await fetch(
+        `https://skytrip.vercel.app/user?email=${companyEmail}`
+      );
 
+      console.log(response, "response");
+      const data = await response.json();
 
-    const { data: specificUser, refetch: refetchUser } = useQuery({
-        queryKey: ['specificCompany'],
-        queryFn: async () => {
-            const response = await fetch(`https://skytrip.vercel.app/user?email=${companyEmail}`)
-            const data = response.json()
-            return data
-        }
-    })
+      console.log(data, "data");
+      return data;
+    },
+  });
 
-    return [specificUser, refetchUser]
+  console.log(specificUser, "specific user in hook");
+
+  return [specificUser, refetchUser];
 };
 
 export default useSpecificUser;

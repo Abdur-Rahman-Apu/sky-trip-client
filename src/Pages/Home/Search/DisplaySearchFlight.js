@@ -1,15 +1,31 @@
 import { faJetFighter } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import useSpecificUser from "../../../customHooks/useSpecificUser";
+import React, { useEffect, useState } from "react";
 
 const DisplaySearchFlight = ({ item, setItem }) => {
-  const [specificUser] = useSpecificUser(item?.companyEmail);
+  //   const [specificUser] = useSpecificUser(item?.companyEmail);
+
+  const [companyImage, setCompanyImage] = useState(null);
+
+  useEffect(() => {
+    const getCompanyImage = async () => {
+      const res = fetch(
+        "`https://skytrip.vercel.app/user?email=${companyEmail}`"
+      );
+
+      const data = await res.json();
+
+      setCompanyImage(data?.image);
+    };
+
+    getCompanyImage();
+  }, []);
+  console.log(item, "item");
 
   return (
     <div className="card card-side flex-col md:flex-row p-3 justify-between items-center px-10 bg-base-100 shadow-xl w-[70vw] mx-auto my-10">
       <figure>
-        <img className="h-44" src={specificUser?.image} alt="company pic" />
+        <img className="h-44" src={companyImage} alt="company pic" />
       </figure>
 
       <div>
